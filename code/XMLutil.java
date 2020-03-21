@@ -1,6 +1,7 @@
 package code;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -19,8 +20,8 @@ public class XMLutil {
 
             //获取类名
             NodeList nodeList = doc.getElementsByTagName("className");
-            String calssname = nodeList.item(0).getTextContent();
-            System.out.println(calssname);
+            Node node = nodeList.item(0).getFirstChild();
+            String calssname = node.getNodeValue();
 
             //返回对象
             Class c = Class.forName(calssname);
